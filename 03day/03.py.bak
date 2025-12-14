@@ -1,0 +1,29 @@
+FILE_PATH='03_example.txt'
+
+def find_highest_joltage(path_to_file: str)-> int:
+    # sort list to get the top 2 hights values in array
+    total_joltage = 0
+    try:
+        with open(path_to_file, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                str_line = str(line)
+                list_str_line = list(str_line.strip())
+                list_int_line = [int(n) for n in list_str_line]
+
+                # from high to low
+                sorted_list = sorted(list_int_line, reverse=True)
+
+                if len(sorted_list) < 2:
+                    continue
+                print(f"n1: {sorted_list[0]} & n2: {sorted_list[1]}")
+                total_joltage += sorted_list[0] + sorted_list[1]
+
+        print(f"output: {total_joltage}")
+        return total_joltage
+
+    except FileNotFoundError:
+        print(f"Error: {path_to_file} not found")
+        return 0
+
+find_highest_joltage(FILE_PATH)
