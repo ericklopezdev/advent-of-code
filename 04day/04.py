@@ -1,4 +1,4 @@
-PATH_FILE="04.txt"
+PATH_FILE="04_example.txt"
 
 def can_be_acc(i, j, grid):
     counter = 0
